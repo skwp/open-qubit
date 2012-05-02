@@ -1,0 +1,316 @@
+<html><head><TITLE>Description of QState</TITLE></head>
+<body BGCOLOR=#FFFFFF>
+<FONT FACE="Helvetica">
+<DL><DT>
+<FONT SIZE=4> 
+ class 
+</FONT>
+<FONT SIZE=5><B>QState</B></FONT>
+
+<br><br>
+
+<DD><FONT FACE="Times" SIZE=4>
+  <B>Model of a quantum state/register</B>    <br><br>  
+<FONT FACE="Times" SIZE=3><I>
+
+
+</FONT>
+<FONT Size=2><B> Concepts/Code by:</B> Yan Pritzker, Peter Belkner, Rafal Podeszwa, Chris Dawson</FONT> 
+
+</DL>
+
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=5>
+<CAPTION>
+<FONT SIZE=4>Members</FONT>
+</CAPTION>
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><U><B>Public</B></U></FONT></TD></TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP></TD><TD VALIGN=TOP>
+    
+    <B>QState</B>
+    () 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Default constructor. (Create one qubit)</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP></TD><TD VALIGN=TOP>
+    
+    <B>QState</B>
+    (int size) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Coefficients not specified. Set up Walsh-Hadamard state (1/sqrt(size)).</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP></TD><TD VALIGN=TOP>
+    
+    <B>QState</B>
+    (int size, const std::vector&#60;Complex&#62; &#38;c) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Constructor with initialization to complex amplitude array.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP></TD><TD VALIGN=TOP>
+    
+    <B>_nQubits</B>
+    (size) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3></TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP></TD><TD VALIGN=TOP>
+    
+    <B>~QState</B>
+    () 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Default destructor.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>void </TD><TD VALIGN=TOP>
+    
+    <B>SetState</B>
+    (const std::vector&#60;Complex&#62; &#38;c) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Set state to specified coefficients.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>void </TD><TD VALIGN=TOP>
+    
+    <B>PrintSTD</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Display outcomes and coefficients [does not disturb state]</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>void </TD><TD VALIGN=TOP>
+    
+    <B>Print</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: New version of above. (uses streams) [DOES NOT COLLAPSE]</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>void </TD><TD VALIGN=TOP>
+    
+    <B>Dump</B>
+    (char filename[]) const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Dump state to file. (Oemer-like Format) [does not disturb state]</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>void </TD><TD VALIGN=TOP>
+    
+    <B>Read</B>
+    (char filename[]) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Read state from file. [convenience function]</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>int </TD><TD VALIGN=TOP>
+    
+    <B>Outcomes</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Returns total number of outcomes.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>int </TD><TD VALIGN=TOP>
+    
+    <B>Qubits</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Returns total number of bits.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>operator </TD><TD VALIGN=TOP>
+    
+    <B>long</B>
+    () 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Implicit conversion operator causes destructive measure.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>Complex&#38; </TD><TD VALIGN=TOP>
+    
+    <B>operator[]</B>
+    (int index) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Access to coefficients.</TD>
+</TR>
+
+
+
+
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><B><U>Friends</U></B></FONT></TD></TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>friend ostream&#38; </TD><TD VALIGN=TOP>
+    
+    <B>operator<<</B>
+    (ostream&#38;, const <A HREF="QState.html" >QState</A>&#38;) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Same as above.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>friend void </TD><TD VALIGN=TOP>
+    
+    <B>Reset</B>
+    (<A HREF="QState.html" >QState</A> &#38;q) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Reset to base state |00...0>.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>friend long </TD><TD VALIGN=TOP>
+    <A HREF="#QState_Measure_QState___"><B>Measure</B></A>
+    
+    (<A HREF="QState.html" >QState</A> &#38;q) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Destructive register measure.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>friend short </TD><TD VALIGN=TOP>
+    
+    <B>Measure</B>
+    (<A HREF="QState.html" >QState</A> &#38;q, int i) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Destructive bit measure.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>friend int </TD><TD VALIGN=TOP>
+    
+    <B>MeasureSet</B>
+    (<A HREF="QState.html" >QState</A> &#38;q, unsigned long bits) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Destructive measure of a set of bits.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>friend double </TD><TD VALIGN=TOP>
+    
+    <B>norm</B>
+    (const <A HREF="QState.html" >QState</A> &#38;q) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Sum of normalized amplitudes. </TD>
+</TR>
+
+
+
+</TABLE>
+</CENTER>
+<BR><BR>
+<UL>
+<DL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<A NAME="QState_Measure_QState___">
+<DT><HR WIDTH=90%><BR>friend long <B>Measure</B>(<A HREF="QState.html" >QState</A> &#38;q)  
+<BR>
+<DD>
+  <B>Destructive register measure.</B>  <p>   
+
+ Note that the collapsing functions do not return another
+ state, as suggested by Peter Belkner, but rather destroy
+ the *this state. This is more physically correct because
+ when we look at a quantum state in real life, we don't 
+ get 'another' state, but rather the state we are looking
+ at collapses. After the collapse all the coefficients are
+ set to 0 except for that of the state that the register
+ collapsed to.
+<br><br>
+
+
+
+
+
+
+
+
+
+
+</DL></UL>
+<BR>
+<HR WIDTH=90%>
+<CENTER>
+<A HREF="index.html">Return To Index</A>
+</CENTER>
+</FONT>
+</body>
+</html>

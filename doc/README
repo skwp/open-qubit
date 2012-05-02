@@ -1,0 +1,136 @@
+OPENQUBIT SOURCE TREE VERSION 0.2.0 
+	Changelog for Version 0.2.0
+		-first public release
+		-this is rafals release of fixed and patched 0.1.6 code
+		-now the factoring is _really_ working
+		-63 factorable on 32MB of RAM		
+		-removed ReverseBits operator class (not functioning properly)
+			-use the Reverse() function in utility.h instead
+		-changed prime testing functions, added prime power test
+
+	Changelog for Version 0.1.5
+		-removed _State variable
+		-implemented operators as classes with operator() overloaded
+		-two base classes for operators: SingleBit for one bit gates
+		 and Controlled for multi-bit controlled gates where the
+		 first parameter is the controlling bitmask, and the second
+		 is the controlled bit. Please see the qop.h file for more
+		 information and main.cc for examples.
+		-created DoAllBits class that allows any ordinary operator
+		 to operator on all bits. so opWalshHadamard is really:
+
+		 typedef DoAllBits<opHadamard> opWalshHadamard;
+		
+		 this is an experimental class. It probably will only work
+		 with gates requiring no parameters such as the Hadamard
+		 operator.
+		-added stream printing for QState using code
+		 by Artur Ruszczynski
+			-changed some code in stream printing to support printing
+			 plus sign between two coefficients separated by more than
+			 one zero, and changed some other things for cleaner code.
+
+	Changelog for Version 0.1.0a
+		[General]
+		-array of amplitudes implemented as STL vector
+		-Perceps used for documentation of classes.
+			-only classes are documented. header files not
+			 containing classes are not documented by perceps.
+		
+		[qstate.h & qstate.cc]
+		-implemented 'Bernhard's Algorithm' for collapse
+		 which uses a random starting point in the collapse
+		-added Dump() to put state to file using Bernhard 
+		 Oemer's format
+		-added Read() to read in from file
+
+		I believe this version to be more or less 'complete'
+		in the sense that it has achieved the model of a quantum
+		register/state including entanglement. This is why I
+		have jumped revision numbers to 0.1. The next step, 0.2
+		will be the implementation of basic quantum gates. This
+		version is still to be considered alpha and is open to
+		testing, debugging, and discussion. If only changes are
+		made to this current code and no additions, it should
+		remain as 0.1 but will change revision states according
+		to letters (alpha,beta,gamma) and minor additions will
+		earn minor revision numbers such as 0.1.1.
+
+
+	Changelog for Version 0.0.4
+		Another big rewrite.
+
+		[General]
+		-QRegister has been renamed to QState.
+		-QState implements Rafal's collapsing algorithms.
+		-States that are not direct tensor products are now possible.
+		-See main.cc for examples.
+	
+
+	Changelog for Version 0.0.3
+   
+		12/7/1998
+   	Completely rewritten almost from scratch.
+		Language has been [temporarily] named 'h' for obvious reasons.
+
+		[General]
+		-Made major changes to Makefile.
+		-Qubit stuff is not compiled into a lib.
+		 (qregister.o and qubit.o -> libOpenQubit.a)
+		-Added debugging module "debug.h"
+		 (please see debug.h for use)
+	
+		[qubit.h & qubit.cc]
+		-Qubit is the basic unit.
+		-Added normalization and validation code for
+		 coefficients and probabilities.
+		-Added default constructor (no coefficients given)
+		-Cleaned code; got rid of int() cast because
+		 short() cast will be implicitly promoted to int
+		-Moved srand() to QRegister code, otherwise collapse
+		 happens too fast for numbers to be random.
+      
+		[qregister.h & qregister.cc]
+		-Create QRegister class which implements a
+		 Qubit array.
+		-Each Qubit holds its own probability coefficients.
+		 This removes the necessity to hold 2^n complex numbers.
+		 Instead, to compute each of the outcome probabilities the
+		 function prob() is used, which multiplies various 
+		 probabilities to obtain the state probability.
+		-Use dtob() function implemented in binary.h in order
+		 to calculate above mentioned probabilities.
+		-Added auto-collapsing int cast and auto-collapsint
+		 stream << operator.
+	
+		[misc: complex.h & binary.h & random.h]
+		-Changed conjuageMult() to abs2() in complex.h
+		-Added assignment operator for complex numbers
+		 Complex c; c=5; (re=5,im=0);
+		-Added stream >> operator to read in complex number
+		 as "[real] [img]"
+		-RNG encapsulation (random.h) contributed by
+		 Joe Nelson
+	 
+    
+		[main.cpp]
+		-Implemented prototype mini-parser for commands.
+		 Accepts one command: "qureg" and upon recieving this command
+		 asks for size and coefficients for a quantum register, creates
+		 it and collapses it.
+		-Coefficients read in space delimited, so in order to use
+		 .707 + 0i, .707 + 0i you type
+		-h Coefficients?> .707 0 .707 0
+
+		[notes]
+		-rand() will not be sufficient for sure. We need good
+		 PRNG. Any suggestions? I do not own Knuth's book on the 
+		 topic but planning to get it soon. We're going to need
+		 fairly sophisticated PRNG if this is going to work at
+		 all. srand() based on time() does not work because, for
+		 example the qubits collapse so fast that repeatdly srand()ing
+		 in that time period causes the same seed and thus the same
+		 number. I battled this by putting the srand() into the function
+		 in QRegister which then calls all the individual Qubit collapses.
+
+For information on class structure see doc/index.html.

@@ -1,0 +1,20 @@
+sub filter {
+  local($str)=@_;
+  local($newstr,$pname,$pdesc);
+  foreach (split("\n",$str)) {
+    if(/^\s*\t(.*)/) {
+      $pdesc.=" $1";
+    }
+    if(/^[^\t\S]*(\S+)\s*\-\s*(.*)/) {
+      if($pname) {
+       $newstr.="<TR><TD><B><FONT FACE=Helvetica SIZE=2>$pname</FONT></B></TD><TD><FONT FACE=Helvetica SIZE=2>$pdesc</FONT></TD></TR>\n";
+      }
+      $pname=$1;
+      $pdesc=$2;
+    }
+  }
+  $newstr.="<TR><TD><B><FONT FACE=Helvetica SIZE=2>$pname</FONT></B></TD><TD><FONT FACE=Helvetica SIZE=2>$pdesc</FONT></TD></TR>\n";
+  $str="<BR><TABLE BORDER=2 CELLPADDING=4>\n<TR><TD><FONT SIZE=2>Parameter</FONT></TD><TD><FONT SIZE=2>Description</FONT></TD></TR>\n".$newstr;
+  $str.="</TABLE>\n";
+  return $str;
+}

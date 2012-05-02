@@ -1,0 +1,13 @@
+just type 'make'
+to clean the tree, type 'make clean'
+to make the docs type 'make docs'. then see doc/index.html
+to run type './shor'
+
+if you want debugging info (not recommended unless you know what
+you are doing) edit the Makefile and uncomment '-DNODEBUG'
+
+there is currently no 'make install' implemented as these releases
+are by no means final products, and are meant for testing purposes
+only.
+
+for more information see doc/README

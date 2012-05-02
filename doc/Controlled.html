@@ -1,0 +1,107 @@
+<html><head><TITLE>Description of Controlled</TITLE></head>
+<body BGCOLOR=#FFFFFF>
+<FONT FACE="Helvetica">
+<DL><DT>
+<FONT SIZE=4> 
+ class 
+</FONT>
+<FONT SIZE=5><B>Controlled</B></FONT>
+
+<br><br>
+
+<DD><FONT FACE="Times" SIZE=4>
+  <B>Base for multi-bit (multi-controlled one bit) gates.</B>    <br><br>  
+<FONT FACE="Times" SIZE=3><I>
+
+
+</FONT>
+<FONT Size=2><B> Concepts/Code by:</B> Rafal Podeszwa, Christopher Dawson, Peter Belkner, Yan Pritzker</FONT> 
+
+</DL>
+
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=5>
+<CAPTION>
+<FONT SIZE=4>Members</FONT>
+</CAPTION>
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><U><B>Public</B></U></FONT></TD></TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual void </TD><TD VALIGN=TOP>
+    
+    <B>operator()</B>
+    (<A HREF="QState.html" >QState</A> &#38;q, int mask, int bit) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Operator for application of gate to a <A HREF="QState.html" >QState</A>.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual void </TD><TD VALIGN=TOP>
+    
+    <B>operator()</B>
+    (<A HREF="QState.html" >QState</A> &#38;q, int bits[], int bit) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: This version allows bitmask to be specified in an array of int.</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>void </TD><TD VALIGN=TOP>
+    
+    <B>SetMatrix</B>
+    (const Complex &#38;a00, const Complex &#38;a01, const Complex &#38;a10, const Complex &#38;a11) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Allows reusal of a defined gate by changing its matrix.</TD>
+</TR>
+
+
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><B><U>Protected</U></B></FONT></TD></TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP></TD><TD VALIGN=TOP>
+    
+    <B>Controlled</B>
+    (const Complex &#38;a00=1, const Complex &#38;a01=0, const Complex &#38;a10=0, const Complex &#38;a11=1) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Constructor to create gate matrix (Identity Matrix by default)</TD>
+</TR>
+
+
+
+
+
+</TABLE>
+</CENTER>
+<BR><BR>
+<UL>
+<DL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</DL></UL>
+<BR>
+<HR WIDTH=90%>
+<CENTER>
+<A HREF="index.html">Return To Index</A>
+</CENTER>
+</FONT>
+</body>
+</html>

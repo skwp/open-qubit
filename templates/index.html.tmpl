@@ -1,0 +1,30 @@
+<html><head><TITLE>Example Class Index</TITLE></head>
+<body BGCOLOR=#FFFFFF>
+<CENTER>
+<P>
+<TABLE BORDER=0 CELLPADDING=10>
+<CAPTION><FONT COLOR=darkblue SIZE=6><B><U>OpenQubit Class Index</U></B></FONT></CAPTION>
+
+{foreach lib}
+
+{if lib}
+<TR>
+<TD></TD><TD><FONT COLOR=darkred SIZE=3><B>{lib}</B></FONT></TD><TD></TD>
+</TR>
+{endif}
+
+{foreach author}
+{foreach class}
+
+<TR >
+  <TD  ALIGN=RIGHT VALIGN=TOP><A HREF="{class}.html">
+  <FONT FACE="Helvetica" SIZE=3><B>{classname}{templ}</B></FONT></A></TD>
+  <TD VALIGN=TOP><FONT FACE="Times" SIZE=3><B>{brief}</B></TD>
+</TR>
+
+{next class}
+{next author}
+{next lib}
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,157 @@
+<html><head><TITLE>Description of RandGenerator</TITLE></head>
+<body BGCOLOR=#FFFFFF>
+<FONT FACE="Helvetica">
+<DL><DT>
+<FONT SIZE=4> template  
+ class 
+</FONT>
+<FONT SIZE=5><B>RandGenerator&#60;class T&#62;</B></FONT>
+
+<br><br>
+
+<DD><FONT FACE="Times" SIZE=4>
+  <B>Interface to which all RNG classes in RandLib must conform</B>    <br><br>  
+<FONT FACE="Times" SIZE=3><I>
+
+
+</FONT>
+<FONT Size=2><B> Concepts/Code by:</B> Joe Nelson</FONT> 
+
+</DL>
+
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=5>
+<CAPTION>
+<FONT SIZE=4>Members</FONT>
+</CAPTION>
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><U><B>Public</B></U></FONT></TD></TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual void </TD><TD VALIGN=TOP>
+    <A HREF="#RandGenerator_Seed_constunsignedintconstunsignedint__"><B>Seed</B></A>
+    
+    (const unsigned int seedVal, const unsigned int seedVal2) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Seeds the randomizer with a beginning value</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual T </TD><TD VALIGN=TOP>
+    <A HREF="#RandGenerator_GetRandBetween_constTconstT__"><B>GetRandBetween</B></A>
+    
+    (const T minVal, const T maxVal) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Gets a rand between minVal and maxVal inclusive</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual const T </TD><TD VALIGN=TOP>
+    
+    <B>HighestRand</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Highest random number that will be generated</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual const T </TD><TD VALIGN=TOP>
+    
+    <B>LowestRand</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: Lowest random number that will be generated</TD>
+</TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual const T </TD><TD VALIGN=TOP>
+    
+    <B>RandGenerationRange</B>
+    () const
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3>: The range (HighestRand - LowestRand) that can be generated</TD>
+</TR>
+
+
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><B><U>Protected</U></B></FONT></TD></TR>
+
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>virtual T </TD><TD VALIGN=TOP>
+    
+    <B>GetRand</B>
+    (const long double maxVal) 
+     
+    </TD>
+    <TD><FONT FACE="Times" SIZE=3></TD>
+</TR>
+
+
+
+
+
+</TABLE>
+</CENTER>
+<BR><BR>
+<UL>
+<DL>
+
+
+<A NAME="RandGenerator_Seed_constunsignedintconstunsignedint__">
+<DT><HR WIDTH=90%><BR>virtual void <B>Seed</B>(const unsigned int seedVal, const unsigned int seedVal2)  
+<BR>
+<DD>
+  <B>Seeds the randomizer with a beginning value</B>  <p>   
+
+ In some children of <A HREF="RandGenerator.html" >RandGenerator</A>, this function
+ may be meaningless. Also, seedVal2 need not be
+ used by all children.
+<br><br>
+
+
+
+
+<A NAME="RandGenerator_GetRandBetween_constTconstT__">
+<DT><HR WIDTH=90%><BR>virtual T <B>GetRandBetween</B>(const T minVal, const T maxVal)  
+<BR>
+<DD>
+  <B>Gets a rand between minVal and maxVal inclusive</B>  <p>   
+
+ PRECONDITIONS: <BR>
+ (minVal <= maxVal), <BR>
+ (minVal >= LowestRand), <BR>	
+ (maxVal <= HighestRand),	<BR>
+ (RandGenerationRange >= maxVal-minVal)	<BR>
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</DL></UL>
+<BR>
+<HR WIDTH=90%>
+<CENTER>
+<A HREF="index.html">Return To Index</A>
+</CENTER>
+</FONT>
+</body>
+</html>

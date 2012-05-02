@@ -1,0 +1,39 @@
+This is a credits file for major contributors to the OpenQubit project.
+Fields are as follows: N=name P=position (if any) E=email C=code contributed
+
+N: Yan Pritzker
+P: Founder/Project Leader
+E: yan@pritzker.ws
+C: main development/organization/cleanup
+
+N: Robert Chin
+P: Webmaster
+E: qin@laya.com
+
+N: Rafal Podeszwa
+E: poszwa@tiger.chem.uw.edu.pl
+C: qstate and operator code (biggest contributor), main shor code
+
+N: Christopher Dawson
+E: cmd110@rsphy1.anu.edu.au
+C: ModExp, various gate code, misc
+
+N: Peter Belkner
+E: pbelkner@berlin.snafu.de
+C: alternate implementations (eqcs)
+
+N: Joe Nelson
+E: 3nelsons@pressenter.com
+C: RandLib [RNG Encapsulation]
+
+N: Jonathan Blow
+E: jon@bolt-action.com
+C: dtob() and friends
+
+N: Igor Kofman
+E: digriz@ameritech.net
+C: original qubit implementation, algorithm classes
+
+N: Artur Ruszczynski
+E: ruszczyn@if.pw.edu.pl
+C: iomanip.cc 

@@ -1,0 +1,127 @@
+<html><head><TITLE>Description of {name}</TITLE></head>
+<body BGCOLOR=#FFFFFF>
+<FONT FACE="Helvetica">
+<DL><DT>
+<FONT SIZE=4>{if templ} template {endif} {if struct} struct {endif}
+{else} class {endelse}
+</FONT>
+<FONT SIZE=5><B>{classlinked}{templ}</B></FONT>
+{if parents}
+  <FONT SIZE=4> : {parents} </FONT>
+{endif}
+<br><br>
+
+<DD><FONT FACE="Times" SIZE=4>
+{if brief}  <B>{brief}</B> {if detail} <p> {endif} {else}  <br><br> {endelse} {endif}
+<FONT FACE="Times" SIZE=3><I>{if detail} {detail}</FONT></I>  <br><br>{endif}
+{if italic} <I> {italic} </I> <br><br> {endif}
+{if testvariable} {testvariable}  <br><br>{endif}
+</FONT>
+{if author}<FONT Size=2><B> Concepts/Code by:</B> { author }</FONT> {endif}
+{if minor}<br><FONT Size=2><B> Additional Contributions by:</B> { minor }</FONT> {endif}
+</DL>
+
+<CENTER>
+<TABLE BORDER=0 CELLPADDING=5>
+<CAPTION>
+<FONT SIZE=4>Members</FONT>
+</CAPTION>
+
+{if public}
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><U><B>Public</B></U></FONT></TD></TR>
+{foreach public}
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>{type}</TD><TD VALIGN=TOP>
+    {if detail}{!autolink}<A HREF="#{memberef}"><B>{mname}</B></A>{autolink}{endif}
+    {else}<B>{mname}</B>{endelse}
+    {if func}({args}) {if const}const{endif}
+    {if throws} <FONT COLOR="red"> throws {throwclass}({throwargs}) </FONT>{endif} {endif}
+    {if enum} {lb}{args}{rb} {endif}</TD>
+    <TD><FONT FACE="Times" SIZE=3>{if brief}: {brief}{endif}</TD>
+</TR>
+{next public}
+{endif public}
+
+{if protected}
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><B><U>Protected</U></B></FONT></TD></TR>
+{foreach protected}
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>{type}</TD><TD VALIGN=TOP>
+    {if detail}{!autolink}<A HREF="#{memberef}"><B>{mname}</B></A>{autolink}{endif}
+    {else}<B>{mname}</B>{endelse}
+    {if func}({args}) {if const}const{endif}
+    {if throws} <FONT COLOR="red"> throws {throwclass}({throwargs}) </FONT>{endif} {endif}
+    {if enum} {lb}{args}{rb} {endif}</TD>
+    <TD><FONT FACE="Times" SIZE=3>{if brief}: {brief}{endif}</TD>
+</TR>
+{next protected}
+{endif protected}
+
+{if friend}
+<TR><TD COLSPAN=2 ALIGN=CENTER><BR><FONT SIZE=3><B><U>Friends</U></B></FONT></TD></TR>
+{foreach friend}
+<TR>
+    <TD ALIGN=RIGHT VALIGN=TOP>{type}</TD><TD VALIGN=TOP>
+    {if detail}{!autolink}<A HREF="#{memberef}"><B>{mname}</B></A>{autolink}{endif}
+    {else}<B>{mname}</B>{endelse}
+    {if func}({args}) {if const}const{endif}
+    {if throws} <FONT COLOR="red"> throws {throwclass}({throwargs}) </FONT>{endif} {endif}
+    {if enum} {lb}{args}{rb} {endif}</TD>
+    <TD><FONT FACE="Times" SIZE=3>{if brief}: {brief}{endif}</TD>
+</TR>
+{next friend}
+{endif freind}
+
+</TABLE>
+</CENTER>
+<BR><BR>
+<UL>
+<DL>
+{foreach public}
+{if detail}
+{!autolink}<A NAME="{memberef}">{autolink}
+<DT><HR WIDTH=90%><BR>{type}<B>{mname}</B>{if func}({args}) {if const}const{endif}{if throws} <FONT COLOR="red"> throws {throwclass}({throwargs}) </FONT>{endif} {endif}
+{if enum} {lb}{args}{rb} {endif}<BR>
+<DD>
+{if brief}  <B>{brief}</B> {if detail} <p> {endif} {else}  <br><br> {endelse} {endif}
+{if param}{param}<br><br>{endif}
+{if detail}{detail}<br><br>{endif}
+{if italic} <I> {italic} </I> <br><br> {endif}
+{endif detail}
+{next public}
+
+{foreach protected}
+{if detail}
+{!autolink}<A NAME="{memberef}">{autolink}
+<DT><HR WIDTH=90%><BR>{type}<B>{mname}</B>{if func}({args}) {if const}const{endif}{if throws} <FONT COLOR="red"> throws {throwclass}({throwargs}) </FONT>{endif} {endif}
+{if enum} {lb}{args}{rb} {endif}<BR>
+<DD>
+{if brief}  <B>{brief}</B> {if detail} <p> {endif} {else}  <br><br> {endelse} {endif}
+{if param}{param}<br><br>{endif}
+{if detail}{detail}<br><br>{endif}
+{if italic} <I> {italic} </I> <br><br> {endif}
+{endif detail}
+{next protected}
+
+{foreach friend}
+{if detail}
+{!autolink}<A NAME="{memberef}">{autolink}
+<DT><HR WIDTH=90%><BR>{type}<B>{mname}</B>{if func}({args}) {if const}const{endif}{if throws} <FONT COLOR="red"> throws {throwclass}({throwargs}) </FONT>{endif} {endif}
+{if enum} {lb}{args}{rb} {endif}<BR>
+<DD>
+{if brief}  <B>{brief}</B> {if detail} <p> {endif} {else}  <br><br> {endelse} {endif}
+{if param}{param}<br><br>{endif}
+{if detail}{detail}<br><br>{endif}
+{if italic} <I> {italic} </I> <br><br> {endif}
+{endif detail}
+{next friend}
+
+</DL></UL>
+<BR>
+<HR WIDTH=90%>
+<CENTER>
+<A HREF="index.html">Return To Index</A>
+</CENTER>
+</FONT>
+</body>
+</html>
